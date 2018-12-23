@@ -32,7 +32,7 @@ function genBombs() {
                 if (col-1>=0 && row-1>=0) { if (board[col-1][row-1] != -1) board[col-1][row-1]++; }
                 if (col-1>=0 && row>=0) { if (board[col-1][row] != -1) board[col-1][row]++; }
                 if (col-1>=0 && row+1<rows) { if (board[col-1][row+1] != -1) board[col-1][row+1]++; }
-                if (col>=0 && row-1>0) { if (board[col][row-1] != -1) board[col][row-1]++; }
+                if (col>=0 && row-1>=0) { if (board[col][row-1] != -1) board[col][row-1]++; }
                 if (col>=0 && row+1<rows) { if (board[col][row+1] != -1) board[col][row+1]++; }
                 if (col+1<columns && row-1>=0) { if (board[col+1][row-1] != -1) board[col+1][row-1]++; }
                 if (col+1<columns && row>=0) { if (board[col+1][row] != -1) board[col+1][row]++; }
@@ -47,30 +47,56 @@ function genBombs() {
 }
 
 function drawBoard() {
-    var grid = clickGrid(function(xell, row, col) {
-        xell.innerHTML = board[row][col];
-        if (board[row][col] == -1) {
-            xell.className = "bomb";
-        } else {
-            xell.className = "numCell";
+    var grid = createGrid(function(el, event){
+        if (event.button == 0 && event.shiftKey == false) {
+            if (el.className != "flagged") {
+                if (el.innerHTML == -1) {
+                    el.className = "bomb";
+                } else {
+                    el.className = "numCell";
+                }
+            }
+        }
+        if (event.button == 0 && event.shiftKey == true) {
+            console.log(el.className);
+            if (el.className == "flagged") {
+                el.className = "";
+            }
+            else if (el.className != "bomb" && el.className != "numCell") {
+                el.className = "flagged";
+            }
         }
     })
 
     document.body.appendChild(grid);
 }
-
-function clickGrid(callback) {
+function createGrid(callback) {
     var grid = document.createElement("table");
     grid.className = 'board';
     for (var i = 0; i < columns; i++) {
         var col = grid.appendChild(document.createElement("tr"));
         for (var j = 0; j < rows; j++) {
             var cell = col.appendChild(document.createElement('td'));
-            cell.addEventListener("click", (function(xell, j, i) {
-                return function(){
-                    callback(xell,j,i);
-                }
-            })(cell,j,i),false);
+            cell.innerHTML = board[j][i];
+            cell.className = "hidden";
+            cell.onclick = function(ev) {
+                return callback(this, ev);
+            }
+
+            //  cell.onclick = function(ev) {
+            //     ev.preventDefault();
+            //     if (ev.button == 2) {
+
+            //         if (this.className = "flagged") {
+            //             this.className = "";
+            //         } else {
+            //             this.className = "flagged";
+            //         }
+
+            //         return false;
+            //     }
+            //     return true;
+            // };
         }
     }
 
