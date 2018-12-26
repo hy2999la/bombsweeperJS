@@ -8,7 +8,6 @@
     height: 30px;
     border: 1px solid rgb(0, 0, 0);
     text-align: center;
-    font-family: Roboto;
 }
 
 #board td.hidden {
@@ -20,24 +19,81 @@
 }
 
 #board td.flagged {
-    background-color: rgb(238, 74, 74);
+    /*background-color: rgb(238, 74, 74);*/
+    background: url("images/flag.png");
+    background-size:30px 30px;
+    background-repeat: no-repeat;
+    background-position: center;
     font-size: 0px !important;
 }
 
 #board td.numCell {
     font-size: 20px;
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
+    background-color: rgb(204, 204, 204);
+}
+
+#board td.zero {
+    font-size: 0px !important;
+    background-color: rgb(185, 184, 184);
+}
+
+#board td.one {
+    font-size: 20px;
+    color: rgb(0, 0, 255);
+}
+
+#board td.two {
+    font-size: 20px;
+    color: rgb(108, 156, 79);
+}
+
+#board td.three {
+    font-size: 20px;
+    color: rgb(255, 0, 0);
+}
+
+#board td.four {
+    font-size: 20px;
+    color: rgb(255, 255, 0);
+}
+
+#board td.five {
+    font-size: 20px;
+    color: rgb(0, 255, 255);
+}
+
+#board td.six {
+    font-size: 20px;
+    color: rgb(255, 0, 255);
+}
+
+#board td.seven {
+    font-size: 20px;
     color: rgb(0, 0, 0);
 }
-#board td.bomb {
+
+#board td.eight {
     font-size: 20px;
-    background: rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+
+#board td.bomb {
+    font-size: 0px !important;
+    /*background-color: rgb(0, 0, 0);*/
+    /*background-color: rgb(255, 255, 255);*/
+    background: url("images/bomb.png");
+    background-size:30px 30px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .game {
     text-align: center;
     width: 75%;
     margin: auto;
+    font-family: Roboto, sans-serif;
 }
 
 .slidercontainer {

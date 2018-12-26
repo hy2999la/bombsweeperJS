@@ -11,20 +11,19 @@
         <script src="bombsweep.js"></script>
         <div class="gameParameters">
             <div>
-                <span class="slidercontainer">1 <input autocomplete="off" type="range" min="1" max="50" value="15" class="slider" id="xSize" oninput="updateInput(this.value, 'xIn')"> 50</span>
-                <input autocomplete="off" type="text" min="1" max="50" value="15" class="input"  id="xIn" name="xtile" onchange="updateInput(this.value, 'xSize')">
+                <span class="slidercontainer"><label>2</label> <input autocomplete="off" type="range" min="2" max="30" value="15" class="slider" id="xSize" oninput="updateInput(this.value, 'xIn')"> <label>30</label></span>
+                <input autocomplete="off" type="text" value="15" class="input"  id="xIn" name="xtile" onchange="updateInput(this.value, 'xSize')">
             </div>
             <div>
-                <span class="slidercontainer">1 <input autocomplete="off" type="range" min="1" max="50" value="15" class="slider" id="ySize" oninput="updateInput(this.value, 'yIn')"> 50</span>
-                <input autocomplete="off" type="text" min="1" max="50" value="15" class="input" id="yIn" name="ytile" onchange="updateInput(this.value, 'ySize')">
+                <span class="slidercontainer"><label>2</label> <input autocomplete="off" type="range" min="2" max="30" value="15" class="slider" id="ySize" oninput="updateInput(this.value, 'yIn')"> <label>30</label></span>
+                <input autocomplete="off" type="text" value="15" class="input" id="yIn" name="ytile" onchange="updateInput(this.value, 'ySize')">
             </div>
             <div>
-                <span class="slidercontainer">1 <input autocomplete="off" type="range" min="1" max="25" value="5" class="slider" id="bombNum" oninput="updateInput(this.value, 'bIn')"> 25</span>
-                <input autocomplete="off" type="text" min="1" max="25" value="5" class="input" id="bIn" name="bombnum" onchange="updateInput(this.value, 'bombNum')">
+                <span class="slidercontainer"><label>1</label> <input autocomplete="off" type="range" min="1" max="25" value="5" class="slider" id="bombNum" oninput="updateInput(this.value, 'bIn')"> <label id="maxBombs">25</label></span>
+                <input autocomplete="off" type="text" value="5" class="input" id="bIn" name="bombnum" onchange="updateInput(this.value, 'bombNum')">
             </div>
             <input type="button" name="generateNew" value="Generate" onclick="generateGame()">
         </div>
-        <script src="game.js"></script>
     </div>
 </body>
 </html>
