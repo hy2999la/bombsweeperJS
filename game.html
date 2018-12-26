@@ -7,8 +7,24 @@
 </head>
 
 <body>
-    <!-- <canvas id="canvas" style="border:1px solid #000"></canvas> -->
-    <script src="bombsweep.js">
-    </script>
+    <div class="game">
+        <script src="bombsweep.js"></script>
+        <div class="gameParameters">
+            <div>
+                <span class="slidercontainer">1 <input type="range" min="1" max="50" value="15" class="slider" id="xSize"> 50</span>
+                <input type="text" class="input" name="xtile">
+            </div>
+            <div>
+                <span class="slidercontainer">1 <input type="range" min="1" max="50" value="15" class="slider" id="ySize"> 50</span>
+                <input type="text" class="input" name="ytile">
+            </div>
+            <div>
+                <span class="slidercontainer">1 <input type="range" min="1" max="25" value="10" class="slider" id="bombNum"> 25</span>
+                <input type="text" class="input" name="bombnum">
+            </div>
+            <input type="button" name="generateNew" value="Generate" onclick="generateGame()">
+            <script src="game.js"></script>
+        </div>
+    </div>
 </body>
 </html>

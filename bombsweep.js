@@ -18,6 +18,13 @@ var bombNum = 0;
 genBombs();
 drawBoard();
 
+function generateGame() {
+    var game = document.getElementsByClassName("board");
+    game.parentNode.removeChild(game);
+    genBombs();
+    drawBoard();
+}
+
 function genBombs() {
     for (var i = 0; i < maxBombs; i++) {
         var row = Math.floor(Math.random() * Math.floor(rows));
@@ -42,7 +49,7 @@ function genBombs() {
             i--;
         }
     }
-
+    counter = maxBombs;
     console.table(board);
 }
 
@@ -56,6 +63,9 @@ function drawBoard() {
                     el.className = "numCell";
                 }
             }
+            if (el.innerHTML == -1) {
+                loseGame();
+            }
         }
         if (event.button == 0 && event.shiftKey == true) {
             console.log(el.className);
@@ -64,6 +74,13 @@ function drawBoard() {
             }
             else if (el.className != "bomb" && el.className != "numCell") {
                 el.className = "flagged";
+                if (el.innerHTML == -1) {
+                    counter--;
+                }
+
+                if (counter == 0) {
+                    winGame();
+                }
             }
         }
     })
@@ -82,23 +99,12 @@ function createGrid(callback) {
             cell.onclick = function(ev) {
                 return callback(this, ev);
             }
-
-            //  cell.onclick = function(ev) {
-            //     ev.preventDefault();
-            //     if (ev.button == 2) {
-
-            //         if (this.className = "flagged") {
-            //             this.className = "";
-            //         } else {
-            //             this.className = "flagged";
-            //         }
-
-            //         return false;
-            //     }
-            //     return true;
-            // };
         }
     }
 
     return grid;
+}
+
+function loseGame() {
+
 }

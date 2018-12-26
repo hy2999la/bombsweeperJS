@@ -32,3 +32,23 @@
     background: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
 }
+
+.gameParameters {
+    text-align: center;
+    width: 75%;
+    margin: auto;
+}
+
+.slidercontainer {
+    align-self: center;
+    width: 85%;
+    vertical-align: middle;
+}
+.slider {
+    width: 20em;
+    vertical-align: middle;
+}
+
+.input {
+    width: 2em;
+}
