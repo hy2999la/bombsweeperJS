@@ -1,5 +1,5 @@
-.board {margin:1em auto; border-collapse:collapse}
-.board td {
+#board {margin:1em auto; border-collapse:collapse}
+#board td {
     -moz-user-select: none;
     -webkit-user-select: none;
     user-select: none;
@@ -8,32 +8,33 @@
     height: 30px;
     border: 1px solid rgb(0, 0, 0);
     text-align: center;
-    font-family: san-serif,Roboto;
+    font-family: Roboto;
 }
 
-.board td.hidden {
+#board td.hidden {
     font-size: 0px !important;
 }
 
-.board td:hover {
+#board td:hover {
     background-color: rgb(121, 121, 121);
 }
 
-.board td.flagged {
+#board td.flagged {
     background-color: rgb(238, 74, 74);
+    font-size: 0px !important;
 }
 
-.board td.numCell {
+#board td.numCell {
     font-size: 20px;
     color: rgb(0, 0, 0);
 }
-.board td.bomb {
+#board td.bomb {
     font-size: 20px;
     background: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
 }
 
-.gameParameters {
+.game {
     text-align: center;
     width: 75%;
     margin: auto;
@@ -51,4 +52,8 @@
 
 .input {
     width: 2em;
+}
+
+.blockClicks {
+    pointer-events: none;
 }

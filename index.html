@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bomb Sweeper in JS</title>
+    <link rel="stylesheet" type="text/css" href="game.css">
+</head>
+
+<body>
+    <div class="game" id="game">
+        <script src="bombsweep.js"></script>
+        <div class="gameParameters">
+            <div>
+                <span class="slidercontainer">1 <input autocomplete="off" type="range" min="1" max="50" value="15" class="slider" id="xSize" oninput="updateInput(this.value, 'xIn')"> 50</span>
+                <input autocomplete="off" type="text" min="1" max="50" value="15" class="input"  id="xIn" name="xtile" onchange="updateInput(this.value, 'xSize')">
+            </div>
+            <div>
+                <span class="slidercontainer">1 <input autocomplete="off" type="range" min="1" max="50" value="15" class="slider" id="ySize" oninput="updateInput(this.value, 'yIn')"> 50</span>
+                <input autocomplete="off" type="text" min="1" max="50" value="15" class="input" id="yIn" name="ytile" onchange="updateInput(this.value, 'ySize')">
+            </div>
+            <div>
+                <span class="slidercontainer">1 <input autocomplete="off" type="range" min="1" max="25" value="5" class="slider" id="bombNum" oninput="updateInput(this.value, 'bIn')"> 25</span>
+                <input autocomplete="off" type="text" min="1" max="25" value="5" class="input" id="bIn" name="bombnum" onchange="updateInput(this.value, 'bombNum')">
+            </div>
+            <input type="button" name="generateNew" value="Generate" onclick="generateGame()">
+        </div>
+        <script src="game.js"></script>
+    </div>
+</body>
+</html>
