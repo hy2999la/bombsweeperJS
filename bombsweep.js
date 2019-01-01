@@ -2,18 +2,33 @@
 var columns = 15;
 var rows = 15;
 
+const MAX_ALLOW_COLS = 30;
+const MAX_ALLOW_ROWS = 30;
+
 var maxBombs = 10;
-const MAX_ALLOW_BOMBS = 25;
+const MAX_ALLOW_BOMBS = 40;
+
 var numFlags = 0;
 
 //The game board which displays the number in each cell from 0 ~ 8 and -1 denoting a bomb
-var board = Array(columns).fill().map(() => Array(rows).fill(0));
-var zeroBoard = Array(columns).fill().map(() => Array(rows));
+var board;
+var zeroBoard;
 var counter = 0;
 var bombNum = 0;
 
-genBombs();
-drawBoard();
+window.onload = setGameParam()
+
+function setGameParam() {
+    document.getElementById("xSize").value = columns;
+    document.getElementById("xSize").max = MAX_ALLOW_COLS;
+    document.getElementById("maxX").innerHTML = MAX_ALLOW_COLS;
+
+    document.getElementById("ySize").value = rows;
+    document.getElementById("ySize").max = MAX_ALLOW_ROWS;
+    document.getElementById("maxY").innerHTML = MAX_ALLOW_ROWS;
+
+    document.getElementById("bombNum").value = calcMaxBombs(columns, rows);
+}
 
 function updateInput(val, id) {
     document.getElementById(id).value=val;
@@ -27,18 +42,22 @@ function setMaxBombIn() {
     var bombsT = document.getElementById("bIn");
     var bombLabel = document.getElementById("maxBombs");
 
-    if ((x * y) >= MAX_ALLOW_BOMBS) {
-        bombs.max = MAX_ALLOW_BOMBS;
-        bombLabel.innerHTML = MAX_ALLOW_BOMBS;
-    } else {
-        bombs.max = (x*y) - 1;
-        bombLabel.innerHTML = (x*y)-1;
-    }
+    bombs.max = calcMaxBombs(x, y);
+    bombLabel.innerHTML = calcMaxBombs(x, y);
+
     var val = +bombs.value;
 
     if (val >= bombs.max) {
         bombs.value = bombs.max;
         bombsT.value = bombs.max;
+    }
+}
+
+function calcMaxBombs(x, y) {
+    if ((x * y) > MAX_ALLOW_BOMBS) {
+        return MAX_ALLOW_BOMBS
+    } else {
+        return (x * y) - 1;
     }
 }
 
@@ -215,11 +234,16 @@ function loseGame() {
         }
     }
     var endGameMsg = document.createElement("div");
-    endGameMsg.appendChild(document.createElement("H2").appendChild(document.createTextNode("You Lost")));
-    endGameMsg.appendChild(document.createElement("br"));
-    endGameMsg.appendChild(document.createElement("H3").appendChild(document.createTextNode("Click Generate to start a new game")));
+    var h2 = document.createElement("h2");
+    var t1 = document.createTextNode("You Lost");
+    var h3 = document.createElement("h3");
+    var t2 = document.createTextNode("Click Generate to start a new game");
+    h2.appendChild(t1);
+    h3.appendChild(t2);
+    endGameMsg.appendChild(h2);
+    endGameMsg.appendChild(h3);
     endGameMsg.id = "endgamemsg";
-    endGameMsg.className = "game";
+    endGameMsg.className = "game five";
     document.body.appendChild(endGameMsg);
 
     var gameBoard = document.getElementById("board");
@@ -228,11 +252,16 @@ function loseGame() {
 
 function winGame() {    
     var endGameMsg = document.createElement("div");
-    endGameMsg.appendChild(document.createElement("H2").appendChild(document.createTextNode("Congratulations You Won!")));
-    endGameMsg.appendChild(document.createElement("br"));
-    endGameMsg.appendChild(document.createElement("H3").appendChild(document.createTextNode("Click Generate to start a new game")));
+    var h2 = document.createElement("h2");
+    var t1 = document.createTextNode("Congratulations You Won!");
+    var h3 = document.createElement("h3");
+    var t2 = document.createTextNode("Click Generate to start a new game")
+    h2.appendChild(t1);
+    h3.appendChild(t2);
+    endGameMsg.appendChild(h2);
+    endGameMsg.appendChild(h3);
     endGameMsg.id = "endgamemsg";
-    endGameMsg.className = "game";
+    endGameMsg.className = "game five";
     document.body.appendChild(endGameMsg);
 
     var gameBoard = document.getElementById("board");

@@ -1,3 +1,25 @@
+body {
+    background-color: #1E1E1E;
+}
+
+h1 {
+    font-size: 375%;
+    margin-bottom: -15px;
+}
+
+h2 {
+    margin-bottom: -10px;
+}
+
+p {
+    margin: 5px;
+}
+
+.gameInfo {
+    width: auto;
+    margin-bottom: 2em;
+}
+
 #board {margin:1em auto; border-collapse:collapse}
 #board td {
     -moz-user-select: none;
@@ -6,19 +28,20 @@
     cursor: pointer;
     width: 30px;
     height: 30px;
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid #29A0C4;
     text-align: center;
+    background-color: #2E2E2E;
 }
 
-#board td.hidden {
+.hidden {
     font-size: 0px !important;
 }
 
 #board td:hover {
-    background-color: rgb(121, 121, 121);
+    background-color: #364656;
 }
 
-#board td.flagged {
+.flagged {
     /*background-color: rgb(238, 74, 74);*/
     background: url("images/flag.png");
     background-size:30px 30px;
@@ -27,62 +50,52 @@
     font-size: 0px !important;
 }
 
-#board td.numCell {
+td.numCell {
     font-size: 20px;
     font-family: Roboto, sans-serif;
     font-weight: bold;
-    background-color: rgb(204, 204, 204);
+    background-color: #1B1B1B !important;
 }
 
-#board td.zero {
+.zero {
     font-size: 0px !important;
-    background-color: rgb(185, 184, 184);
+    background-color: #363636 !important;
 }
 
-#board td.one {
-    font-size: 20px;
-    color: rgb(0, 0, 255);
+.one {
+    color: rgb(62, 17, 232);
 }
 
-#board td.two {
-    font-size: 20px;
-    color: rgb(108, 156, 79);
+.two {
+    color: rgb(163, 0, 232);
 }
 
-#board td.three {
-    font-size: 20px;
-    color: rgb(255, 0, 0);
+.three {
+    color: rgb(232, 17, 100);
 }
 
-#board td.four {
-    font-size: 20px;
-    color: rgb(255, 255, 0);
+.four {
+    color: rgb(211, 26, 134);
 }
 
-#board td.five {
-    font-size: 20px;
-    color: rgb(0, 255, 255);
+.five {
+    color: rgb(232, 87, 31);
 }
 
-#board td.six {
-    font-size: 20px;
-    color: rgb(255, 0, 255);
+.six {
+    color: rgb(232, 218, 17);
 }
 
-#board td.seven {
-    font-size: 20px;
-    color: rgb(0, 0, 0);
+.seven {
+    color: rgb(197, 255, 0);
 }
 
-#board td.eight {
-    font-size: 20px;
-    color: rgb(0, 0, 0);
+.eight {
+    color: rgb(18, 255, 31);
 }
 
-#board td.bomb {
+.bomb {
     font-size: 0px !important;
-    /*background-color: rgb(0, 0, 0);*/
-    /*background-color: rgb(255, 255, 255);*/
     background: url("images/bomb.png");
     background-size:30px 30px;
     background-repeat: no-repeat;

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Bomb Sweeper in JS</title>
     <link rel="stylesheet" type="text/css" href="game.css">
 </head>
@@ -9,27 +10,24 @@
 <body>
     <div class="game" id="game">
         <div class="gameInfo">
-            <h1>Bombsweeper</h1>
-            <h2>This is window's Minesweeper done in Javascript</h2>
-            <br/>
-            <p>Left click a cell to reveal it</p>
-            <p>Shift + Left click a cell to flag it</p>
-            <p>Flag all the bombs to win</p>
-            <p>Reveal a bomb and you lose</p>
-            <h3>Good Luck! Click Generate to start the game with the size and number of bombs</h3>
+            <h1 class="one">Bombsweeper</h1>
+            <h3 class="two">This is Window's Minesweeper in Javascript</h3>
+            <p class="three">Left click a cell to reveal it</p>
+            <p class="three">Shift + Left click a cell to flag it</p>
+            <h3 class="two">Good Luck!</h3>
         </div>
         <script src="bombsweep.js"></script>
         <div class="gameParameters">
             <div>
-                <span class="slidercontainer"><label>2</label> <input autocomplete="off" type="range" min="2" max="30" value="15" class="slider" id="xSize" oninput="updateInput(this.value, 'xIn')"> <label>30</label></span>
+                <span class="slidercontainer"><label class="seven">2</label> <input autocomplete="off" type="range" min="2" max="30" value="15" class="slider" id="xSize" oninput="updateInput(this.value, 'xIn')"> <label class="eight" id="maxX">30</label></span>
                 <input autocomplete="off" type="text" value="15" class="input"  id="xIn" name="xtile" onchange="updateInput(this.value, 'xSize')">
             </div>
             <div>
-                <span class="slidercontainer"><label>2</label> <input autocomplete="off" type="range" min="2" max="30" value="15" class="slider" id="ySize" oninput="updateInput(this.value, 'yIn')"> <label>30</label></span>
+                <span class="slidercontainer"><label class="seven">2</label> <input autocomplete="off" type="range" min="2" max="30" value="15" class="slider" id="ySize" oninput="updateInput(this.value, 'yIn')"> <label class="eight" id="maxY">30</label></span>
                 <input autocomplete="off" type="text" value="15" class="input" id="yIn" name="ytile" onchange="updateInput(this.value, 'ySize')">
             </div>
             <div>
-                <span class="slidercontainer"><label>1</label> <input autocomplete="off" type="range" min="1" max="25" value="10" class="slider" id="bombNum" oninput="updateInput(this.value, 'bIn')"> <label id="maxBombs">25</label></span>
+                <span class="slidercontainer"><label class="seven">1</label> <input autocomplete="off" type="range" min="1" max="MAX_ALLOW_BOMBS" value="10" class="slider" id="bombNum" oninput="updateInput(this.value, 'bIn')"> <label class="eight" id="maxBombs"></label></span>
                 <input autocomplete="off" type="text" value="10" class="input" id="bIn" name="bombnum" onchange="updateInput(this.value, 'bombNum')">
             </div>
             <input type="button" name="generateNew" value="Generate" onclick="generateGame()">
