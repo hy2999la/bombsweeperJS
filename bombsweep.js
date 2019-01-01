@@ -2,7 +2,7 @@
 var columns = 15;
 var rows = 15;
 
-var maxBombs = 5;
+var maxBombs = 10;
 const MAX_ALLOW_BOMBS = 25;
 var numFlags = 0;
 
@@ -89,9 +89,10 @@ function genBombs() {
 function drawBoard() {
     var grid = createGrid(function(el, event) {
         if (event.button == 0 && event.shiftKey == false) {
-            if (el.className != "flagged") {
+            if (!el.classList.contains("flagged")) {
                 if (el.innerHTML == -1) {
                     el.className = "bomb";
+                    loseGame();
                 } else {
                     el.className = "numCell";
                     switch (el.innerHTML) {
@@ -107,9 +108,6 @@ function drawBoard() {
                     }
                 }
             }
-            if (el.innerHTML == -1) {
-                loseGame();
-            }
         }
 
         if (event.button == 0 && event.shiftKey == true) {
@@ -121,7 +119,7 @@ function drawBoard() {
                     counter++;
                 }
             }
-            else if (el.className != "bomb" && el.className != "numCell") {
+            else if (el.className != "bomb" && !el.classList.contains("numCell")) {
                 el.className = "flagged";
                 numFlags++;
                 if (el.innerHTML == -1) {
